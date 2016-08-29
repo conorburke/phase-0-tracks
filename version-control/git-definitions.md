@@ -1,3 +1,5 @@
+##Have a nice weekend Tyler!
+
 # Git Definitions
 
 **Instructions: ** Define each of the following Git concepts.
