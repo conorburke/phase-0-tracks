@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Practice Form</title>
 </head>
 <body>
-
-</body>
+  <h1>Prctice Form</h1>
+  <form action="success.html" method="POST">
+   <div>
+    <label>Type of operating system</label>
+    <select name="os">
+      <option value="mac os">Mac Os</option>
+      <option value="mac os">Windows</option>
+      <option value="mac os">Linux</option>
+    </select>
+   </div>
+   <div>
+    <textarea name="operating_system" rows="10" cols="35" >Write down the reason why you choose that operating system.</textarea>
+   </div>
+   <div>
+   <p>These features are important to me:</p>
+    <input type="checkbox" name="cb-features" value="design">well designed
+    <input type="checkbox" name="cn-features" value="price">reasonable price
+   </div>
+  <div>
+    <label>Username:</label>
+    <input type="text" name="username">
+    <label>Password:</label>
+    <input type="password" name="password">
+  </div>
+  <div>
+    <button type="submit">Submit preferences</button>
+  </div>
+  </form>
+</body> 
 </html>
