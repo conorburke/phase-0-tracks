@@ -4,9 +4,9 @@
 
 #octopus{
   position: absolute;
-  top: 100px;
-  margin-left: 530px;
   display: block;
+  margin-top: 100px;
+  margin-left: 530px;
   z-index:1;
 }
 #glasses{
