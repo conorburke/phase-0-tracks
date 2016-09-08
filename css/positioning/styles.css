@@ -1,31 +1,24 @@
-body{
-  outline: 1px solid red;
-}
-
 .wrapper{
   position: relative;
 }
 
 #octopus{
-  outline: 1px solid black;
-  position: fixed;
+  position: absolute;
   top: 100px;
-  margin-left: 41%;
+  margin-left: 530px;
   display: block;
   z-index:1;
 }
 #glasses{
-  outline: 1px solid black;
-  position: fixed;
+  position: absolute;
   display: block;
-  top: 32%;
-  left: 45%;
+  top: 200px;
+  left: 570px;
   z-index: 2
 }
 #hat{
-  outline: 1px solid black;
-  position: fixed;
+  position: absolute;
   display: block;
-  left: 40%;
+  left: 510px;
   z-index: 3;
 }
