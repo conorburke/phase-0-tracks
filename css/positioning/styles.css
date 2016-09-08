@@ -2,9 +2,27 @@ body{
   outline: 1px solid red;
 }
 #octopus{
-  position: relative;
-  margin: 0px auto;
-  margin-top: 50px;
-  display: block;
   outline: 1px solid black;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index:1;
+}
+#glasses{
+  outline: 1px solid black;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 2
+}
+#hat{
+  outline: 1px solid black;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 3;
+
 }
