@@ -50,3 +50,11 @@ main{
   padding-right: 5px;
   min-width: 250px;
 }
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+  h1 {
+    font-size: 12px;
+}
