@@ -30,3 +30,7 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+body{
+  width: 960px;
+}
