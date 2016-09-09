@@ -41,6 +41,7 @@ figcaption {
 
 body{
   max-width: 960px;
+  margin: 0px auto;
 }
 
 main{
@@ -55,6 +56,11 @@ main{
   body {
     background-color: hotpink;
   }
-  h1 {
+  h1{
     font-size: 12px;
+  }
+  #external-links{
+    float: left;
+    width: 100%;
+  }
 }
