@@ -16,3 +16,7 @@
 #practitioner:hover{
   background-color: green;
 }
+
+section>h3{
+  background-color: blue;
+}
