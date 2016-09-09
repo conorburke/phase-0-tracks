@@ -12,3 +12,7 @@
 .accomplishments{
   font-size: .8em;
 }
+
+#practitioner:hover{
+  background-color: green;
+}
