@@ -62,10 +62,12 @@ until counter == number_employees
     conclusion = String.new
     if correct_age && (order_bread || buy_insurance)
       conclusion = "Probably not a vampire."
-    elsif correct_age == false && (order_bread == false || buy_insurance == false)
+    elsif correct_age == false && (order_bread == false || 
+      buy_insurance == false)
       conclusion = "Probably a vampire."
     end
-    if correct_age == false && order_bread == false && buy_insurance == false
+    if correct_age == false && order_bread == false && 
+      buy_insurance == false
       conclusion = "Almost certainly a vampire."
     end
     if name == "Drake Cula" or name == "Tu Fang" 
@@ -79,5 +81,8 @@ until counter == number_employees
   counter += 1
   sunshine = false
 end
+
+puts "Actually, never mind! What do these questions have to do with anything? 
+Let's all be friends."
     
 
