@@ -40,24 +40,44 @@ until counter == number_employees
     else
       buy_insurance = false
     end
+  #add list for allergies
+  puts "Do you have any allergies to list?"
+  allergies = gets.chomp.downcase
+  if allergies == "yes"
+    add_allergies = true
+    while add_allergies 
+      puts "Enter an allergy one by one.  Enter 'done' when finished."
+      allergy = gets.chomp.downcase
+      if allergy == "sunshine"
+        conclusion = "Probably a vampire."
+        add_allergies = false
+        sunshine = true
+      elsif allergy == "done"
+        add_allergies = false
+      end
+    end
+  end
   #check conditionals to determine if vampire 
-  conclusion = String.new
-  if correct_age && (order_bread || buy_insurance)
-    conclusion = "Probably not a vampire."
-  elsif correct_age == false && (order_bread == false || buy_insurance == false)
-    conclusion = "Probably a vampire."
-  end
-  if correct_age == false && order_bread == false && buy_insurance == false
-    conclusion = "Almost certainly a vampire."
-  end
-  if name == "Drake Cula" or name == "Tu Fang" 
-    conclusion = "Definitely a vampire."
-  end
-  if conclusion == ""
-    conclusion = "Results inconclusive."
+  if sunshine != true
+    conclusion = String.new
+    if correct_age && (order_bread || buy_insurance)
+      conclusion = "Probably not a vampire."
+    elsif correct_age == false && (order_bread == false || buy_insurance == false)
+      conclusion = "Probably a vampire."
+    end
+    if correct_age == false && order_bread == false && buy_insurance == false
+      conclusion = "Almost certainly a vampire."
+    end
+    if name == "Drake Cula" or name == "Tu Fang" 
+      conclusion = "Definitely a vampire."
+    end
+    if conclusion == ""
+      conclusion = "Results inconclusive."
+    end
   end
   puts conclusion
   counter += 1
+  sunshine = false
 end
     
 
