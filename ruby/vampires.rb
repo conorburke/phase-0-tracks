@@ -2,6 +2,7 @@
 #vampire questionnaire
 puts "What is your name?"
 name = gets.chomp
+puts name
 puts "How old are you?"
 age = gets.chomp.to_i
 puts "What year were you born?"
@@ -33,8 +34,9 @@ elsif correct_age == false && (order_bread == false || buy_insurance == false)
   conclusion = "Probably a vampire."
 elsif correct_age == false && order_bread == false && buy_insurance == false
   conclusion = "Almost certainly a vampire."
-elsif name == "Drake Cula" || "Tu Fang"
-  conclusion == "Definitely a vampire."
+end
+if name == "Drake Cula" or name == "Tu Fang" 
+  conclusion = "Definitely a vampire."
 else
   conclusion = "Results inconclusive."
 end
