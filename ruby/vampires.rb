@@ -1,7 +1,15 @@
-#challenge 4.4
-#vampire questionnaire
-puts "How many employees will be processed?"
-number_employees = gets.chomp.to_i
+#challenge 4.4 vampire questionnaire
+#ask how many employees will be screened
+continue = true
+while continue
+  puts "How many employees will be processed?"
+  number_employees = gets.chomp.to_i
+    if number_employees > 0
+      continue = false
+    else
+      puts "Enter a positive number"
+    end
+end
 counter = 0
 until counter == number_employees
   #ask four intro questions
