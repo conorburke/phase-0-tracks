@@ -9,7 +9,7 @@ elevator algorithm
 
   while inside elevator
     -check if going to owner's room or going to ground floor
-    -wait for door to close and elevator to move
+    -wait for door to close
     -if going to owner's room
       -locate button panel
       -push button with owner's room number on it
@@ -27,3 +27,6 @@ elevator algorithm
           -exit elevator, execute task
         -else wait in elevator until ground floor
 end elevator
+
+start_car algorithm
+  
