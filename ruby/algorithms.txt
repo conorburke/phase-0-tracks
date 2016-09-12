@@ -1,0 +1,52 @@
+elevator algorithm 
+  -while outside elevator
+    -push elevator request button
+    -ensure indicator light come on
+    -wait one minute
+      -if elevator door open, enter elevator
+        -now inside elevator (outside elevator is false)
+      -else push elevator request button again
+  -while inside elevator
+    -check if going to owner's room or going to ground floor
+    -wait for door to close
+    -if going to owner's room
+      -locate button panel
+      -push button with owner's room number on it
+      -ensure indicator light comes on
+      -wait for door to open
+        -if current floor equal to owner's floor
+          -exit elevator, proceed to owner's room
+        -else wait in elevator until on owner's room floor
+    -else going to ground floor
+      -locate button panel
+      -push button with ground floor symbol
+      -ensure indicator light comes on
+      -wait for door to open
+        -if current floor is ground floor
+          -exit elevator, execute task
+        -else wait in elevator until ground floor
+end elevator
+
+start_car algorithm
+  -while outside car
+    -approach car driver side door
+    -check if locked
+      -if locked, unlock car with transponder
+        -enter car
+      -else, enter car
+      -now inside car (outside car is false)
+  -while inside car
+    -insert key into ignition switch
+    -check pedal count
+      -if three pedals, push down left (clutch) and right (break)
+      -if two pedals, push down left (break)
+    -turn ignition key for two seconds
+      -if engine does not start, repeat action until engine start
+      -if engine start, keep foot on break (and clutch if pedal count is three)
+        -if pedal count is two, move to drive or reverse
+          -ensure e-break is off
+          -execute drive_car 
+        -else pedal count is three, move to 1st gear or reverse
+          -ensure e-break is off
+          -execute drive_car
+end start_car
