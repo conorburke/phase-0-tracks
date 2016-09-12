@@ -1,0 +1,29 @@
+elevator algorithm 
+  while outside elevator
+    -push elevator request button
+    -ensure indicator light come on
+    -wait one minute
+      -if elevator door open, enter elevator
+        -now inside elevator (outside elevator is false)
+      -else push elevator request button again
+
+  while inside elevator
+    -check if going to owner's room or going to ground floor
+    -wait for door to close and elevator to move
+    -if going to owner's room
+      -locate button panel
+      -push button with owner's room number on it
+      -ensure indicator light comes on
+      -wait for door to open
+        -if current floor equal to owner's floor
+          -exit elevator, proceed to owner's room
+        -else wait in elevator until on owner's room floor
+    -else if going to ground floor
+      -locate button panel
+      -push button with ground floor symbol
+      -ensure indicator light comes on
+      -wait for door to open
+        -if current floor is ground floor
+          -exit elevator, execute task
+        -else wait in elevator until ground floor
+end elevator
