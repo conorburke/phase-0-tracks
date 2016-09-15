@@ -32,6 +32,17 @@ def encrypt(word)
   code.join
 end
 
-def decrypt(wor)
-
-puts encrypt("zed")
+def decrypt(word)
+  counter = 0
+  code = []
+  while counter < word.length
+    if word[counter] == "a"
+      code[counter] = "z"
+    else
+      code[counter] = (word[counter].ord - 1).chr
+    end
+    counter += 1
+  end
+  code.join
+end
+puts decrypt("af e")
