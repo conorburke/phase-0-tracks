@@ -51,4 +51,17 @@ def decrypt(word)
 end
 #Code below is decrypt method calling the encrypt method.  This
 #will result in an output that matches the input
-puts decrypt(encrypt("swordfish"))
+#puts decrypt(encrypt("swordfish"))
+
+=begin
+  pseudocode the user interface
+  -ask the user with a prompt if they would like to encrypt or
+  decrypt a password
+  -use a variable (password) with gets to get the password they input
+  -if they choose decrypt, call the method decrypt and pass in
+  the password variable
+  -if they choose encrypt, call the method encrypt and pass in 
+  the password variable
+  -print the results of either method
+  -exit the program 
+=end
