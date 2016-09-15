@@ -49,7 +49,6 @@ def decrypt(word)
   end
   code.join
 end
-puts decrypt("af e")
-puts encrypt("zed")
-puts encrypt("ab c")
-puts decrypt("bcd")
+#Code below is decrypt method calling the encrypt method.  This
+#will result in an output that matches the input
+puts decrypt(encrypt("swordfish"))
