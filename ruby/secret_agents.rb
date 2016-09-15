@@ -57,7 +57,7 @@ end
   pseudocode the user interface
   -ask the user with a prompt if they would like to encrypt or
   decrypt a password
-  -use a variable (password) with gets to get the password they input
+  -use a variable (answer) with gets to get the response they input
   -if they choose decrypt, call the method decrypt and pass in
   the password variable
   -if they choose encrypt, call the method encrypt and pass in 
@@ -65,3 +65,22 @@ end
   -print the results of either method
   -exit the program 
 =end
+correct_answer = true
+while correct_answer
+  puts "Would you like to encrypt or decrypt a password? Enter 1
+  for encrypt and 2 for decrypt."
+  answer = gets.chomp.to_i
+  if answer == 1
+    puts "What is the password?"
+    password = gets.chomp
+    puts "The encrypted version is #{encrypt(password)}."
+    correct_answer = false
+  elsif answer == 2
+    puts "What is the password?"
+    password = gets.chomp
+    puts "The decrypted version is #{decrypt(password)}."
+    correct_answer = false
+  else
+    puts "Please enter again"
+  end
+end
