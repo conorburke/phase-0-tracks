@@ -65,21 +65,27 @@ end
   -print the results of either method
   -exit the program 
 =end
+
+#set up loop to ensure correct answer
 correct_answer = true
 while correct_answer
+#ask user they type of service they want to perform
   puts "Would you like to encrypt or decrypt a password? Enter 1
   for encrypt and 2 for decrypt."
   answer = gets.chomp.to_i
+#encrypt and print the user's password
   if answer == 1
     puts "What is the password?"
     password = gets.chomp
     puts "The encrypted version is #{encrypt(password)}."
     correct_answer = false
+#decrypt the user's password
   elsif answer == 2
     puts "What is the password?"
     password = gets.chomp
     puts "The decrypted version is #{decrypt(password)}."
     correct_answer = false
+#prompt for correct input
   else
     puts "Please enter again"
   end
