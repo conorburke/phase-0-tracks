@@ -23,4 +23,29 @@ client = {
   area: "",
 }
 
-puts 
+puts "What is the name of the client?"
+client[:name] = gets.chomp.to_s
+puts "What is the age of the client?"
+client[:age] = gets.chomp.to_i
+puts "How many children does the client have?"
+client[:num_children] = gets.chomp.to_i
+puts "What is the overall decor theme?"
+client[:decor_theme] = gets.chomp.to_s
+puts "Is the client married (yes or no)?"
+married = gets.chomp.to_s.downcase
+if married == "yes"
+  client[:married] = true
+else
+  client[:married] = false
+end
+puts "Will the client be in a rural area (yes or no)?"
+rural = gets.chomp.to_s.downcase
+if rural == "yes"
+  client[:rural] = true
+else
+  client[:rural] = false
+end
+puts "What is the city or area the client will be in?"
+client[:area] = gets.chomp.to_s
+
+puts client
