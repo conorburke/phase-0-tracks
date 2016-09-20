@@ -8,8 +8,8 @@ first_name_arr = full_name_arr.shift
 full_name_arr.push(first_name_arr)
 full_name = full_name_arr.join(' ')
 
-lower_vowels = ['a', 'e', 'i', 'o', 'u', 'a']
-upper_vowels = ['A', 'E', 'I', 'O', 'U', 'A']
+#lower_vowels = ['a', 'e', 'i', 'o', 'u', 'a']
+#upper_vowels = ['A', 'E', 'I', 'O', 'U', 'A']
 spy_array = []
 
 full_name_arr = full_name.chars
@@ -18,21 +18,30 @@ full_name_arr.map! do |letter|
   if letter.ord == 32
     spy_array << " "
   elsif letter.ord < 91
-    puts letter.ord
     case letter.ord
       when 65
         spy_array << "E"
+      when 68
+        spy_array << "F"
       when 69
         spy_array << "I"
+      when 72
+        spy_array << "J"
       when 73
         spy_array << "O"
+      when 78
+        spy_array << "P"
       when 79
         spy_array << "U"
+      when 84
+        spy_array << "V"
       when 85
         spy_array << "A"
+      when 90
+        spy_array << "B"
     else
-      spy_array << "~"
-    end
+      spy_array << (letter.ord + 1).chr
+    end 
   else
     spy_array << "*"
   end
