@@ -10,9 +10,28 @@ full_name = full_name_arr.join(' ')
 
 lower_vowels = ['a', 'e', 'i', 'o', 'u', 'a']
 upper_vowels = ['A', 'E', 'I', 'O', 'U', 'A']
+spy_array = []
 
 full_name_arr = full_name.chars
-p full_name_arr
+
+full_name_arr.map! do |letter|
+  if letter.ord == 32
+    spy_array << " "
+  elsif letter.ord < 91
+    counterA = 0
+    loop do
+      
+      counterA +=1
+    end
+
+    spy_array << "~"
+  else
+    spy_array << "*"
+  end
+
+end
+
+p spy_array
 
 
 
