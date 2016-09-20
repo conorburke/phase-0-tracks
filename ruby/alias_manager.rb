@@ -8,8 +8,6 @@ first_name_arr = full_name_arr.shift
 full_name_arr.push(first_name_arr)
 full_name = full_name_arr.join(' ')
 
-#lower_vowels = ['a', 'e', 'i', 'o', 'u', 'a']
-#upper_vowels = ['A', 'E', 'I', 'O', 'U', 'A']
 spy_array = []
 
 full_name_arr = full_name.chars
@@ -73,6 +71,8 @@ full_name_arr.map! do |letter|
 end
 
 p spy_array
+spy_name = spy_array.join
+p spy_name
 
 
 
@@ -100,7 +100,7 @@ letters
   -use method to turn string into array of two words
     -use shift and push to reorder array
   -iterate through array of characters to identify them 
-    -use reference arrays, next, and ord/chr to adust letters
+    -use and ord/chr to adust letters
   -adjust for edge cases
   -change type back into string
   -set up loop for multiple iterations of this process
