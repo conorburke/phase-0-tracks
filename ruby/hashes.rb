@@ -55,11 +55,12 @@ puts "Here is the client info:"
 puts client
 puts "Are there any mistakes? Please specify which category has"\
 "a mistake or simply write 'none'."
-error_check = gets.chomp
+error_check = gets.chomp.downcase
 if error_check == "none"
   puts "Great!  Here is your client info:"
   puts client
-elsif error_check == "name" || error_check == "decor_theme" || error_check == "area"
+elsif error_check == "name" || error_check == "decor_theme" \
+  || error_check == "area"
   puts "What is the correct info?"
   corrected = gets.chomp.to_s
   client[error_check.to_sym] = corrected
