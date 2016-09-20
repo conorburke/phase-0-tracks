@@ -58,9 +58,13 @@ nfl[:american][:west].push('San Diego')
 nfl[:national][:west][1] = "Los Angeles"
 nfl[:american][:north][3].reverse!
 nfl[:national][:london] = []
-#nfl_teams = nfl[:national][:east].map do |key, new_team|
-#  team_names = ['Cowboys', 'Giants', 'Eagles', 'Redskins']
-#  :east[key] = team_names[new_team]
-#end
 p nfl
-#p nfl_teams
+counter = 0
+team_names = ['Dallas Cowboys', 'New York Giants', \
+  'Philadelphia Eagles', 'Washington Redskins']
+loop do
+  nfl[:national][:east][counter] = team_names[counter]
+  break if counter == 3
+  counter +=1
+end
+p nfl
