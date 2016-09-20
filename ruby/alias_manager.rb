@@ -1,11 +1,14 @@
 puts "Welcome to the alias name generator."
 continue = true
+alias_tracker = {}
 while continue
   puts "What is your first name?"
   first_name = gets.chomp
   puts "What is your last name?"
   last_name = gets.chomp
   full_name = first_name + " " + last_name
+  full_name_tracker = full_name
+  alias_tracker[full_name_tracker] = ""
   full_name_arr = full_name.split
   first_name_arr = full_name_arr.shift
   full_name_arr.push(first_name_arr)
@@ -14,7 +17,6 @@ while continue
   spy_array = []
 
   full_name_arr = full_name.chars
-  #p full_name_arr
   full_name_arr.map! do |letter|
     if letter.ord == 32
       spy_array << " "
@@ -72,14 +74,18 @@ while continue
       spy_array << "*"
     end
   end
-  #p spy_array
   spy_name = spy_array.join
-  #p spy_name
-  puts "If you would like to quit, type 'quit'. Otherwise,"\
+  alias_tracker[full_name_tracker] = spy_name
+  p spy_name
+  puts "If you would like to quit, type 'quit'. Or, "\
   "just hit enter to enter a new name!"
   answer = gets.chomp.to_s.downcase
-    if answer == "quit"
+    if answer == "quit" || answer == "q"
       continue = false
+      puts "And here are all the names and aliases!"
+      alias_tracker.each do |real_name, alias_name|
+        puts "#{alias_name} is really #{real_name}!"
+      end
     else
       continue == true
     end
