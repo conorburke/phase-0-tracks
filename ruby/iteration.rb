@@ -7,6 +7,7 @@ end
 print_status do |middle|
   puts "This is the #{middle} status."  
 end
+
 #add array and hash and use .each and .map on them
 animals = ["camel","elephant","tiger"]
 football_team = { seattle: "seahawks", cleveland: "browns", baltimore: "ravens" }
@@ -20,3 +21,15 @@ animals.map! do |animal|
   animal.reverse
 end
 puts animals
+
+#use docs to find methods that satisfy array conditions in release 2
+numbers = [0,1,2,3,4,5]
+numbers.delete_if {|number| number<3}
+numbers = [0,1,2,3,4,5]
+numbers.keep_if {|number| number<3}
+numbers = [0,1,2,3,4,5]
+numbers.select! {|number| number<3}
+numbers = [0,1,2,3,4,5]
+numbers2 = numbers.take_while {|number| number<3}
+
+#
