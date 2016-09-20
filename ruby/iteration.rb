@@ -21,6 +21,9 @@ animals.map! do |animal|
   animal.reverse
 end
 puts animals
+football_team.map do |city, team|
+  puts "The #{team.to_s.reverse} is from #{city.to_s.reverse}"
+end
 
 #use docs to find methods that satisfy array conditions in release 2
 numbers = [0,1,2,3,4,5]
