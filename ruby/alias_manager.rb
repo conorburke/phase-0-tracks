@@ -1,3 +1,28 @@
+puts "What is your first name?"
+first_name = gets.chomp
+puts "What is your last name?"
+last_name = gets.chomp
+full_name = first_name + " " + last_name
+full_name_arr = full_name.split
+first_name_arr = full_name_arr.shift
+full_name_arr.push(first_name_arr)
+p full_name_arr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 =begin 
 Pseudocode the solo challenge for flipping names and forwarding
 letters
