@@ -6,6 +6,12 @@ full_name = first_name + " " + last_name
 full_name_arr = full_name.split
 first_name_arr = full_name_arr.shift
 full_name_arr.push(first_name_arr)
+full_name = full_name_arr.join(' ')
+
+lower_vowels = ['a', 'e', 'i', 'o', 'u', 'a']
+upper_vowels = ['A', 'E', 'I', 'O', 'U', 'A']
+
+full_name_arr = full_name.chars
 p full_name_arr
 
 
