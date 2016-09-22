@@ -66,7 +66,18 @@ def sort_alg(arr)
     if comparison_arr[0] > arr[counter]
       arr.push(comparison_arr.shift)
     elsif comparison_arr[0] <= arr[counter]
+      tracked = comparison_arr[0]
+      arr.each do |value|
+        if comparison_arr[0] < value
+          tracked = tracked
+        else
+          tracked = value
+        end
+      end
       
+      if 
+
+      end
     p arr
     p comparison_arr
   end
