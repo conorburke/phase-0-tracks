@@ -13,7 +13,9 @@ def alias_maker(first_name, last_name)
   full_name_arr = full_name.chars
   #iterate through and save new character to spy_array
   #use ASCII values to catch all cases
-  uppercase_exceptions = {
+  p full_name_arr
+  exceptions = {
+  32 => " ",
   65 => "E",
   68 => "F",
   69 => "I",
@@ -24,9 +26,6 @@ def alias_maker(first_name, last_name)
   84 => "V",
   85 => "A",
   90 => "B",
-}
-
-lowercase_exceptions = {
   97 => "e",
   100 => "f",
   101 => "i",
@@ -36,22 +35,96 @@ lowercase_exceptions = {
   111 => "u",
   116 => "v",
   117 => "a",
-  122 => "b",
+  122 => "b"
 }
+#exceptions_index = [32,65,68,69,72,73,78,79,84,85,90,97,100,
+#  101,104,105,110,111,116,117,122]
+
   full_name_arr.each do |letter|
-    #for space character
-    if letter.ord == 32
-      spy_array << " "
-    #for uppercase characters  
-    elsif letter.ord < 91
-      spy_array << uppercase_exceptions[letter.ord]
-    #for lowercase characters
-    elsif letter.ord < 123
-      spy_array << lowercase_exceptions[letter.ord]
+    
+    if exceptions.has_key?(letter.ord)
+      spy_array << exceptions[letter.ord]
     else
-        spy_array << (letter.ord + 1).chr      
+      spy_array << (letter.ord + 1).chr
     end
   end
+=begin
+exceptions2 = {
+  " " => 32,
+  "E" => 65,
+  "F" => 68,
+  "I" => 69,
+  "J" => 72,
+  "O" => 73,
+  "P" => 78,
+  "U" => 79,
+  "V" => 84,
+  "A" => 85,
+  "B" => 90,
+  "e" => 97,
+  "f" => 100,
+  "i" => 101,
+  "j" => 104,
+  "o" => 105,
+  "p" => 110,
+  "u" => 111,
+  "v" => 116,
+  "a" => 117,
+  "b" => 122
+}
+exceptions3 = {
+  " " => " ",
+  "A" => "E",
+  "D" => "F",
+  "E" => "I",
+  "H" => "J",
+  "I" => "O",
+  "N" => "P",
+  "O" => "U",
+  "T" => "V",
+  "U" => "A",
+  "Z" => "B",
+  "a" => "e",
+  "d" => "f",
+  "e" => "i",
+  "h" => "j",
+  "i" => "o",
+  "n" => "p",
+  "o" => "u",
+  "t" => "v",
+  "u" => "a",
+  "z" => "b"
+}
+=end
+
+
+=begin
+exceptions_index.each do |check|
+  counter = 0
+  if check == full_name_arr[counter].ord
+    full_name_arr[counter] = exceptions[check]
+  end
+  counter += 1
+end
+=end
+=begin
+  full_name_arr.each do |letter|
+    counter = 0
+    while counter < exceptions_index.length
+      if exceptions_index[counter] == letter.ord
+        spy_array << exceptions[exceptions_index[counter]]
+        p spy_array
+        counter += 1
+        break
+      else
+        spy_array << (letter.ord + 1).chr
+        p spy_array 
+        break
+      end
+      counter += 1    
+    end
+  end
+=end
   #turn array into string
   spy_name = spy_array.join
 end
