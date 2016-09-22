@@ -66,28 +66,22 @@ def sort_alg(arr)
     comparison_arr.push(arr.shift)
     if arr.length == 0
       sorted_arr.push(comparison_arr.shift)
-    else
-      continue = true
-      while continue 
-        if comparison_arr[0] > arr[0]
-          arr.push(comparison_arr.shift)
-          continue = false
-        else #comparison_arr[0] <= arr[counter]
-          tracked = comparison_arr[0]
-          arr.each do |value|
-            if tracked < value
-              tracked = tracked
-            else
-              tracked = value
-            end
-          end
-          if tracked == comparison_arr[0]
-            sorted_arr.push(comparison_arr.shift)
-            continue = false
+    else 
+      if comparison_arr[0] > arr[0]
+        arr.push(comparison_arr.shift)
+      else #comparison_arr[0] <= arr[counter]
+        tracked = comparison_arr[0]
+        arr.each do |value|
+          if tracked < value
+            tracked = tracked
           else
-            arr.push(comparison_arr.shift)
-            continue = false
+            tracked = value
           end
+        end
+        if tracked == comparison_arr[0]
+          sorted_arr.push(comparison_arr.shift)
+        else
+          arr.push(comparison_arr.shift)
         end
       end
     end
