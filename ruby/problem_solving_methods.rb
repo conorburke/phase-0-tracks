@@ -23,6 +23,7 @@ def fibonacci(num)
     counter += 1
   end
   sequence
+  puts 218922995834555169026 == sequence[num - 1]
 end
 
-p fibonacci(6)
+p fibonacci(100)
