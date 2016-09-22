@@ -56,39 +56,47 @@ p fibonacci(100)
 =end
 
 random = [3,2,5,1,7,0,8]
+random2 = [-43, 800, 66, 0, 1, 2, 2, 2, 66, 40]
 
 def sort_alg(arr)
   comparison_arr = []
   sorted_arr = []
-  while sorted_arr.length < arr.length
+  initial_length = arr.length
+  while sorted_arr.length < initial_length
     comparison_arr.push(arr.shift)
-    counter = 0
-    if comparison_arr[0] > arr[counter]
-      arr.push(comparison_arr.shift)
-    elsif comparison_arr[0] <= arr[counter]
-      tracked = comparison_arr[0]
-      arr.each do |value|
-        if comparison_arr[0] < value
-          tracked = tracked
-        else
-          tracked = value
+    if arr.length == 0
+      sorted_arr.push(comparison_arr.shift)
+    else
+      continue = true
+      while continue 
+        if comparison_arr[0] > arr[0]
+          arr.push(comparison_arr.shift)
+          continue = false
+        else #comparison_arr[0] <= arr[counter]
+          tracked = comparison_arr[0]
+          arr.each do |value|
+            if tracked < value
+              tracked = tracked
+            else
+              tracked = value
+            end
+          end
+          if tracked == comparison_arr[0]
+            sorted_arr.push(comparison_arr.shift)
+            continue = false
+          else
+            arr.push(comparison_arr.shift)
+            continue = false
+          end
         end
       end
-      if tracked == comparison_arr[0]
-        sorted_arr.push(comparison_arr[0])
-      else
-        arr.push(comparison_arr[0])
-      end
-    else
-       
-
-      end
-    p arr
-    p comparison_arr
+    end
   end
+  sorted_arr
 end
 
-sort_alg(random)
+p sort_alg(random)
+p sort_alg(random2)
 
 
 
