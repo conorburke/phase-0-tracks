@@ -1,4 +1,4 @@
-=begin
+#sort through array to find number index
 numbers = [1,2,3,4,5]
 
 def search_number(arr, num)
@@ -12,9 +12,9 @@ def search_number(arr, num)
 end
 
 p search_number(numbers, 6)
-=end
 
-=begin
+
+#create an array of fibonacci numbers
 def fibonacci(num)
   sequence = [0,1]
   counter = 2
@@ -24,11 +24,11 @@ def fibonacci(num)
     counter += 1
   end
   sequence
-  puts 218922995834555169026 == sequence[num - 1]
+  #puts 218922995834555169026 == sequence[num - 1]
 end
 
 p fibonacci(100)
-=end
+
 
 =begin
   Pseudocode a sorting method
@@ -97,39 +97,3 @@ end
 
 p sort_alg(random)
 p sort_alg(random2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
