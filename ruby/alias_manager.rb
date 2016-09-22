@@ -1,19 +1,6 @@
-puts "Welcome to the alias name generator."
-#for use with the loop
-continue = true
-#to keep track of entered names and changed names
-alias_tracker = {}
-while continue
-  #accept user input
-  puts "What is your first name?"
-  first_name = gets.chomp
-  puts "What is your last name?"
-  last_name = gets.chomp
+def alias_maker(first_name, last_name)
   #turn into full name string
   full_name = first_name + " " + last_name
-  #save unaltered full name to hash
-  full_name_tracker = full_name
-  alias_tracker[full_name_tracker] = ""
   #turn name into array and take out first name
   full_name_arr = full_name.split
   first_name_arr = full_name_arr.shift
@@ -53,9 +40,9 @@ while continue
         spy_array << "A"
       when 90
         spy_array << "B"
-    else
+      else
       spy_array << (letter.ord + 1).chr
-    end
+      end
     #for lowercase characters
     elsif letter.ord < 123
       case letter.ord
@@ -88,8 +75,30 @@ while continue
   end
   #turn array into string
   spy_name = spy_array.join
+end
+
+uppercase = {
+  
+}
+
+
+puts "Welcome to the alias name generator."
+#for use with the loop
+continue = true
+#to keep track of entered names and changed names
+alias_tracker = {}
+while continue
+  #accept user input
+  puts "What is your first name?"
+  first_name = gets.chomp
+  puts "What is your last name?"
+  last_name = gets.chomp
+  #save unaltered full name to hash
+  full_name = first_name + " " + last_name
+  spy_name = alias_tracker[full_name] = ""
+  spy_name = alias_maker(first_name, last_name)
   #add string to hash
-  alias_tracker[full_name_tracker] = spy_name
+  alias_tracker[full_name] = spy_name
   p "And the alias is #{spy_name}."
   puts "If you would like to quit, type 'quit'. Or, "\
   "just hit enter to enter a new name!"
@@ -105,7 +114,6 @@ while continue
       continue == true
     end
 end
-
 
 
 
