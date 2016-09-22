@@ -74,8 +74,13 @@ def sort_alg(arr)
           tracked = value
         end
       end
-      
-      if 
+      if tracked == comparison_arr[0]
+        sorted_arr.push(comparison_arr[0])
+      else
+        arr.push(comparison_arr[0])
+      end
+    else
+       
 
       end
     p arr
