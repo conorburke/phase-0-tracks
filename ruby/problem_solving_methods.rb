@@ -61,14 +61,18 @@ def sort_alg(arr)
   comparison_arr = []
   sorted_arr = []
   while sorted_arr.length < arr.length
-    arr.shift
+    comparison_arr.push(arr.shift)
+    counter = 0
+    if comparison_arr[0] > arr[counter]
+      arr.push(comparison_arr.shift)
+    elsif comparison_arr[0] <= arr[counter]
+      
     p arr
-    break
+    p comparison_arr
   end
 end
 
-p sort_alg(random)
-
+sort_alg(random)
 
 
 
