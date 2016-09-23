@@ -22,6 +22,7 @@ client = {
   married: false,
   rural: false,
   area: "",
+  wallpaper: []
 }
 
 #prompt designer for client info
@@ -49,6 +50,13 @@ else
 end
 puts "What is the city or area the client will be in?"
 client[:area] = gets.chomp.to_s
+puts "What is the client's wallpaper preference?"
+client[:wallpaper][0] = gets.chomp
+puts "What is the client's second choice of wallpaper?"
+client[:wallpaper][1] = gets.chomp
+puts "What is the client's third choice of wallpaper?"
+client[:wallpaper][2] = gets.chomp
+
 
 #check with designer that everything is correct
 puts "Here is the client info:"
@@ -85,6 +93,28 @@ elsif error_check == "rural"
     client[:rural] = false
   else
     client[:rural] = true
+  end
+  puts "And here is the corrected info:"
+  puts client
+elsif error_check = "wallpaper"
+  puts "Which preference (1, 2, or 3), or put 'all'."
+  answer = gets.chomp
+  if answer.to_i == 1
+    puts "What is the client's wallpaper preference?"
+    client[:wallpaper][answer.to_i - 1] = gets.chomp
+  elsif answer.to_i == 2
+    puts "What is the client's second choice of wallpaper?"
+    client[:wallpaper][answer.to_i - 1] = gets.chomp
+  elsif answer.to_i == 3
+    puts "What is the client's third choice of wallpaper?"
+    client[:wallpaper][answer.to_i - 1] = gets.chomp
+  else  
+    puts "What is the client's wallpaper preference?"
+    client[:wallpaper][0] = gets.chomp
+    puts "What is the client's second choice of wallpaper?"
+    client[:wallpaper][1] = gets.chomp
+    puts "What is the client's third choice of wallpaper?"
+    client[:wallpaper][2] = gets.chomp
   end
   puts "And here is the corrected info:"
   puts client
