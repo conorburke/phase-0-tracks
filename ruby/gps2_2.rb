@@ -98,7 +98,7 @@ p grocery_list
 # output: print out new key and value.
 
 def update_item(item, quantity, list)
-  list.each do |i, q|
+  list.each do
     if list.has_key?(item)
       list[item] = quantity
     else 
