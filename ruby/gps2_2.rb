@@ -45,6 +45,7 @@ def remove_item(item, list)
     i == item 
   end
 end
+
 remove_item("lemonade", grocery_list)
 p grocery_list
 
@@ -52,6 +53,7 @@ p grocery_list
 # input: would take 2 parameters. One for the item that they want to update and one for the new desired quantity.
 # steps: iterate through the hash to see if the item is present, and if so, reassign the value. If item not present, we could print an error message or call the add method that have made.
 # output: print out new key and value.
+
 def update_item(item, quantity, list)
   list.each do |i, q|
     if list.has_key?(item)
@@ -70,3 +72,11 @@ p grocery_list
 # input: accepts grocery list
 # steps: iterate over the hash to print out the key and value pairs in a pretty way.
 # output: string with the associated key and value pairs.
+
+def print_list(list)
+  list.each do |item, quantity|
+    puts "There are #{quantity} #{item} on the grocery list!!"
+  end
+end 
+
+print_list(grocery_list)
