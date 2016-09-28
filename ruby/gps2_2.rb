@@ -1,3 +1,46 @@
+=begin
+
+Reflection:
+
+What did you learn about pseudocode from working on this challenge?
+  -I learned that pseudocoding really makes you think about the process
+  you need to implement before you actually implement it with the code.
+  It can be tedious but really useful when you code.  You may not have
+  thought of everything in it though (for example, we had to use 3 
+  parameters in a method, but while pseudocoding only thought we needed
+  2).
+
+What are the tradeoffs of using arrays and hashes for this challenge?
+  -We found that we needed both to most easily complete this challenge.
+  The nice thing about hashes is that you can create your own keys instead
+  of using just numbers, so a hash more accurately models a grocery list.
+  Arrays are necessary for transitioning from a string input into an 
+  ordered list, which we couldn't do with just a hash.
+
+What does a method return?
+  -A method returns the last evaluated expression in the method, or it
+  returns an explicit return if the return keyword is used.
+
+What kind of things can you pass into methods as arguments?
+  -You can pass all sorts of objects into the method parameters, such as
+  strings, integers, arrays, hashes, booleans, and variables that 
+  represent those items.
+
+How can you pass information between methods?
+  -You can pass information between methods by using return values.  You can
+  set the method returns as variables to pass into other methods or call other
+  methods from within the method.  You can also call the method within itself, 
+  known as recursion.
+
+What concepts were solidified in this challenge, and what concepts are still confusing?
+  -I became more comfortable with passing info/returns between methods.  I also
+  refined my skills with iterators, and how to transform data between different
+  data types.  I also became more comfortable with pseudocoding, especially with a
+  partner.  I still need more repetition with method passing and some types of
+  iterators, but overall I feel much more comfortable with them. 
+=end
+
+
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps: 
