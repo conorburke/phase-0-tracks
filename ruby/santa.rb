@@ -15,7 +15,11 @@ class Santa
   end
 end
 
-nick = Santa.new("male", "black")
-nick.speak
-nick.eat_milk_and_cookies("Chocolate Chip")
-p nick
+santas = []
+genders = ["female", "male", "bigender", "agender", "fluid"]
+ethnicities = ["black", "white", "latino", "asian", "other"]
+
+genders.each_index do |counter|
+  santas.push(Santa.new(genders[counter], ethnicities[counter]))
+end
+p santas
