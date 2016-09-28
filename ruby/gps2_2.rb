@@ -24,11 +24,29 @@ grocery_list = create_list("apples oranges milk")
 # input: item name and optional quantity
 # steps: accept 2 arguments (key, value) and assign that to the hash.
 # output: print out current hash
+def add_item(item, quantity, list)
+  list[item] = quantity
+  item
+end
+
+p add_item("lemonade", 2, grocery_list)
+p add_item("tomatoes", 3, grocery_list)
+p add_item("oions", 1, grocery_list)
+p add_item("ice cream", 4, grocery_list)
+p grocery_list
 
 # Method to remove an item from the list
 # input: would accept 2 parameters, which are the grocery list and whatever item they would like to remove.
 # steps: Use a hash method like deleteif to remove unwanted item from the hash
 # output: print updated has without the unwanted item.
+
+def remove_item(item, list)
+  list.delete_if do |i|
+    i == item 
+  end
+end
+remove_item("lemonade", grocery_list)
+p grocery_list
 
 # Method to update the quantity of an item
 # input: would take 2 parameters. One for the item that they want to update and one for the new desired quantity.
