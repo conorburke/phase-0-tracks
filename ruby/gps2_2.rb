@@ -7,6 +7,18 @@
   # set default quantity to 1 and set this as the hash value
   # call print method to print the list to the console [can you use one of your other methods here?]
 # output: Hash [what data type goes here, array or hash?]
+def create_list(list)
+  groceries = []
+  groceries = list.split(' ')
+  grocery_list = {}
+  groceries.each do |item|
+    grocery_list[item] = 1
+  end
+  grocery_list
+end
+
+p create_list("apples oranges milk")
+grocery_list = create_list("apples oranges milk")
 
 # Method to add an item to a list
 # input: item name and optional quantity
