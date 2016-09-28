@@ -52,6 +52,19 @@ p grocery_list
 # input: would take 2 parameters. One for the item that they want to update and one for the new desired quantity.
 # steps: iterate through the hash to see if the item is present, and if so, reassign the value. If item not present, we could print an error message or call the add method that have made.
 # output: print out new key and value.
+def update_item(item, quantity, list)
+  list.each do |i, q|
+    if list.has_key?(item)
+      list[item] = quantity
+    else 
+      puts "List does not contain that item."
+      break
+    end
+  end
+end
+
+update_item("ice cream", 1, grocery_list)
+p grocery_list
 
 # Method to print a list and make it look pretty
 # input: accepts grocery list
