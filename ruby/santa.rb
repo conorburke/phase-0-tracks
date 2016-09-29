@@ -18,10 +18,10 @@ class Santa
   def celebrate_birthday
     @age += 1
   end
-  # def get_mad_at(reindeer)
-  #   @reindeer_ranking.delete(reindeer)
-  #   @reindeer_ranking.push(reindeer)
-  #end
+  def get_mad_at(reindeer)
+    @reindeer_ranking.delete(reindeer)
+    @reindeer_ranking.push(reindeer)
+  end
   # def gender=(new_gender)
   #   @gender = new_gender
   # end
@@ -32,8 +32,8 @@ class Santa
   #   @ethnicity
   # end
 end
-
-santa_count = 1000000
+puts "How many santa's do you want to create?"
+santa_count = gets.chomp.to_i
 genders = ["female", "male", "bigender", "agender", "fluid"]
 ethnicities = ["black", "white", "latino", "asian", "other"]
 
