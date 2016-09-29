@@ -7,4 +7,9 @@ class TodoList
     items = @list
   end
 
+  def add_item(item)
+    @list.push(item)
+    @list
+  end
+
 end
