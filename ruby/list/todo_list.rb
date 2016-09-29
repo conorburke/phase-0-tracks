@@ -12,4 +12,9 @@ class TodoList
     @list
   end
 
+  def delete_item(item)
+    @list.delete(item)
+    @list
+  end
+
 end
