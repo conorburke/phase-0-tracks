@@ -7,7 +7,7 @@ class WordGuess
 
   def display
     length = @word.length
-    puts "-"*length
+    puts "\"" + "-"*length + "\""
   end
 
 end
@@ -18,6 +18,7 @@ puts "Welcome to the Word Guess game! User1, please"\
      " enter a word:"
 input = gets.chomp
 word = WordGuess.new(input)
+word.display
 
 
 
