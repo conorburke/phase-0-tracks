@@ -15,7 +15,7 @@ describe WordGuess do
 
   it "checks letter and returns word" do
     word.check_letter("e")
-    expect(word.checkletter("e")).to eq "-e-----"
+    expect(word.check_letter("e")).to eq "-e-----"
   end
 
 
