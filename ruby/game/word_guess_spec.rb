@@ -1,7 +1,7 @@
 require_relative 'word_guess'
 
 describe WordGuess do
-  let (:word) { WordGuess.new("Testing", 4) }
+  let (:word) { WordGuess.new("Testing", 10) }
 
   it "displays the current guess status of the word" do
     word.show

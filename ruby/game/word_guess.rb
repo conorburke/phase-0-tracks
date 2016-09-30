@@ -1,3 +1,5 @@
+require 'io/console'
+
 class WordGuess
   attr_reader :guess_count, :guesses
 
@@ -25,22 +27,17 @@ class WordGuess
 
   def check_letter(letter)
     counter = 0
-    if @guess_count < @guesses
-      @word.each_char do |l|
-        if l == letter.downcase or l == letter.upcase
-          @blanks[counter] = @word[counter]
-          counter += 1
-          if @blanks == @word
-            puts "Congrats. You win!"
-            exit
-          end
-        else
-          counter += 1
-        end    
-      end
-    else
-      puts "You used all your guesses! You are a loser!"
-      exit
+    @word.each_char do |l|
+      if l == letter.downcase or l == letter.upcase
+        @blanks[counter] = @word[counter]
+        counter += 1
+        if @blanks == @word
+          puts "Congrats. You win! The word was #{@word}!"
+          exit
+        end
+      else
+        counter += 1
+      end    
     end
     @guess_count += 1
     show
@@ -52,7 +49,8 @@ end
 #user interface
 puts "Welcome to the Word Guess game! User 1, please"\
      " enter a word:"
-input = gets.chomp
+input = STDIN.noecho(&:gets).chomp
+puts "*" * input.length
 continue = true
 while continue
   puts "User 2, what level would you like? Enter easy,"\
@@ -81,37 +79,21 @@ counter = 0
 guess_tracker = []
 while counter < word.guesses
   puts "Guess a letter:"
-  letter = gets.chomp
-  if guess_tracker.include?(letter.downcase) 
-      puts "You already guessed that. Try again."
-  else
+  letter = gets.chomp.slice(0)
+  unless guess_tracker.include?(letter.downcase)
     word.check_letter(letter)
     counter += 1
     puts "You have #{word.guesses - word.guess_count} "\
          "left."
+    if counter == word.guesses
+      puts "You used all your guesses! You are a loser!"
+      exit
+    end
+  else 
+      puts "You already guessed that. Try again."
   end
   guess_tracker.push(letter.downcase)
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Word Guess Game
