@@ -1,14 +1,30 @@
 class WordGuess
+  attr_reader :guess_count, :guesses
 
-
-  def initialize(word)
+  def initialize(word, level)
     @word = word
+    @guess_count = 0
+    @level = level
+    @game_over = false
+    @guesses = word.length * level
   end
 
-  def display
-    length = @word.length
-    puts "\"" + "-"*length + "\""
+  def show
+    blanks = "-" * @word.length
+    puts blanks
+    blanks 
   end
+
+  def leveldiff
+    if @level == 4
+      puts "The level is easy."
+    elsif @level == 3
+      puts "The level is medium."
+    else
+      puts "The level is hard."
+    end
+  end
+
 
 end
 
@@ -17,9 +33,30 @@ end
 puts "Welcome to the Word Guess game! User1, please"\
      " enter a word:"
 input = gets.chomp
-word = WordGuess.new(input)
-word.display
-
+continue = true
+while continue
+  puts "What level would you like? Enter easy, medium"\
+     " or hard."
+  difficulty = gets.chomp
+  if difficulty == "easy".downcase
+    difficulty = 4
+    continue = false
+  elsif difficulty == "medium".downcase
+    difficulty = 3
+    continue = false
+  elsif difficulty == "hard".downcase
+    difficulty = 2
+    continue = false
+  else
+    puts "Level not recognized.  Please enter easy"\
+         " ,medium, or hard."
+  end
+end
+continue = false
+word = WordGuess.new(input, difficulty)
+word.show
+word.leveldiff
+puts word.guesses
 
 
 
