@@ -12,5 +12,10 @@ describe WordGuess do
     expect(word.leveldiff).to eq nil
   end
 
+  it "checks letter and returns word" do
+    word.checkletter("e")
+    expect(word.checkletter("e")).to eq "-e-----"
+  end
+
 
 end

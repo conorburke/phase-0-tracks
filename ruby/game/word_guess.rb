@@ -5,7 +5,6 @@ class WordGuess
     @word = word
     @level = level
     @guess_count = 0
-    @game_over = false
     @guesses = word.length * level
     @blanks = "-" * word.length
   end
@@ -16,25 +15,34 @@ class WordGuess
 
   def leveldiff
     if @level == 4
-      puts "The level is easy."
+      "easy"
     elsif @level == 3
-      puts "The level is medium."
+      "medium"
     else
-      puts "The level is hard."
+      "hard"
     end
   end
 
   def check_letter(letter)
     counter = 0
     @guess_count += 1
-    @word.each_char do |l|
-      if l == letter
-        @blanks[counter] = letter
-        show
-        counter += 1
-      else
-        counter += 1
-      end    
+    if @guess_count < @guesses
+      @word.each_char do |l|
+        if l == letter.downcase or l == letter.upcase
+          @blanks[counter] = letter
+          show
+          counter += 1
+          if @blanks == @word
+            puts "Congrats. You win!"
+            exit
+          end
+        else
+          counter += 1
+        end    
+      end
+    else
+      puts "You are a loser!"
+      exit
     end
   end
 
@@ -64,12 +72,26 @@ while continue
          " ,medium, or hard."
   end
 end
-continue = false
 word = WordGuess.new(input, difficulty)
+puts "The word is #{input.length} letters long and "\
+     "the difficulty is #{word.leveldiff} so you have "\
+     "#{input.length * difficulty} guesses!"
 word.show
-word.leveldiff
-puts word.guesses
-word.check_letter("e")
+counter = 0
+guess_tracker = []
+while counter < word.guesses
+  puts "Guess a letter:"
+  letter = gets.chomp
+  guess_tracker.each do |l|
+    if letter.downcase == l 
+      puts "You already guessed that. Try again."
+    else
+      word.check_letter(letter)
+    end
+  end
+  counter += 1
+  guess_tracker.push(letter.downcase)
+end
 
 
 
