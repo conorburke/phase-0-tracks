@@ -1,7 +1,7 @@
 require_relative 'word_guess'
 
 describe WordGuess do
-  let (:word) { WordGuess.new("Testing", 2) }
+  let (:word) { WordGuess.new("Testing", 4) }
 
   it "displays the current guess status of the word" do
     word.show
@@ -9,7 +9,8 @@ describe WordGuess do
   end
 
   it "shows the current difficulty" do
-    expect(word.leveldiff).to eq nil
+    word.leveldiff
+    expect(word.leveldiff).to eq "easy"
   end
 
   it "checks letter and returns word" do
