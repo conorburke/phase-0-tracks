@@ -3,8 +3,8 @@ class WordGuess
 
   def initialize(word, level)
     @word = word
-    @guess_count = 0
     @level = level
+    @guess_count = 0
     @game_over = false
     @guesses = word.length * level
     @blanks = "-" * word.length
@@ -24,8 +24,19 @@ class WordGuess
     end
   end
 
-  def check_level
-
+  def check_letter(letter)
+    counter = 0
+    @guess_count += 1
+    @word.each_char do |l|
+      if l == letter
+        @blanks[counter] = letter
+        show
+        counter += 1
+      else
+        counter += 1
+      end    
+    end
+  end
 
 end
 
@@ -58,6 +69,7 @@ word = WordGuess.new(input, difficulty)
 word.show
 word.leveldiff
 puts word.guesses
+word.check_letter("e")
 
 
 
