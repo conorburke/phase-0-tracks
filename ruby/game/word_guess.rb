@@ -7,12 +7,11 @@ class WordGuess
     @level = level
     @game_over = false
     @guesses = word.length * level
+    @blanks = "-" * word.length
   end
 
   def show
-    blanks = "-" * @word.length
-    puts blanks
-    blanks 
+    puts "\"" + @blanks + "\"" 
   end
 
   def leveldiff
@@ -24,6 +23,8 @@ class WordGuess
       puts "The level is hard."
     end
   end
+
+  def check_level
 
 
 end

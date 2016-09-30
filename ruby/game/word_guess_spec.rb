@@ -9,8 +9,7 @@ describe WordGuess do
   end
 
   it "shows the current difficulty" do
-    word.leveldiff
-    expect(word.leveldiff).to eq "The level is hard."
+    expect(word.leveldiff).to eq nil
   end
 
 
