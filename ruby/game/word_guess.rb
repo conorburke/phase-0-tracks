@@ -41,7 +41,7 @@ class WordGuess
         end    
       end
     else
-      puts "You are a loser!"
+      puts "You used all your guesses! You are a loser!"
       exit
     end
   end
@@ -82,14 +82,12 @@ guess_tracker = []
 while counter < word.guesses
   puts "Guess a letter:"
   letter = gets.chomp
-  guess_tracker.each do |l|
-    if letter.downcase == l 
+  if guess_tracker.include?(letter) 
       puts "You already guessed that. Try again."
-    else
-      word.check_letter(letter)
-    end
+  else
+    word.check_letter(letter)
+    counter += 1
   end
-  counter += 1
   guess_tracker.push(letter.downcase)
 end
 
