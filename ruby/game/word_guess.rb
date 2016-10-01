@@ -32,17 +32,22 @@ class WordGuess
 
   def check_letter(letter)
     counter = 0
+    increment = true
     @word.each_char do |l|
       if l == letter.downcase or l == letter.upcase
         @blanks[counter] = @word[counter]
-        @guess_count += 1
         if @blanks == @word
           puts "Congrats. You win! The word was #{@word}!"
           exit
         end
+        if increment
+          @guess_count += 1
+          increment = false
+        end
       end
-      counter += 1    
+      counter += 1
     end
+    increment = true    
     @guess_count -= 1
     show
   end
