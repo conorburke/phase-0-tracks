@@ -18,5 +18,4 @@ describe WordGuess do
     expect(word.check_letter("e")).to eq "-e-----"
   end
 
-
 end

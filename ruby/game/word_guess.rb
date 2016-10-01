@@ -30,14 +30,12 @@ class WordGuess
     @word.each_char do |l|
       if l == letter.downcase or l == letter.upcase
         @blanks[counter] = @word[counter]
-        counter += 1
         if @blanks == @word
           puts "Congrats. You win! The word was #{@word}!"
           exit
         end
-      else
-        counter += 1
-      end    
+      end
+      counter += 1    
     end
     @guess_count += 1
     show
@@ -80,21 +78,21 @@ guess_tracker = []
 while counter < word.guesses
   puts "Guess a letter:"
   letter = gets.chomp.slice(0)
-  unless guess_tracker.include?(letter.downcase)
-    word.check_letter(letter)
-    counter += 1
-    puts "You have #{word.guesses - word.guess_count} "\
-         "left."
-    if counter == word.guesses
-      puts "You used all your guesses! You are a loser!"
-      exit
+  if letter.downcase.ord >= 97 and letter.downcase.ord <= 122
+    unless guess_tracker.include?(letter.downcase)
+      word.check_letter(letter)
+      counter += 1
+      puts "You have #{word.guesses - word.guess_count} "\
+           "left."
+    else 
+        puts "You already guessed that. Try again."
     end
-  else 
-      puts "You already guessed that. Try again."
+    guess_tracker.push(letter.downcase)
+  else
+    puts "Not a letter."
   end
-  guess_tracker.push(letter.downcase)
 end
-
+puts "You used all your guesses! You are a loser!"
 
 # Word Guess Game
 
