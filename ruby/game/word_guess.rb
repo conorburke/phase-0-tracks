@@ -1,12 +1,18 @@
 require 'io/console'
 
 class WordGuess
-  attr_reader :guess_count
+  attr_reader :guess_count, :level
 
   def initialize(word, level)
     @word = word
-    @level = level
-    @guess_count = word.length + level
+    if level == "easy"
+      @level = 10
+    elsif level == "medium"
+      @level = 5
+    else
+      @level = 3
+    end 
+    @guess_count = word.length + @level
     @blanks = "-" * word.length
   end
 
@@ -17,7 +23,7 @@ class WordGuess
   def leveldiff
     if @level == 10
       "easy"
-    elsif @level == 6
+    elsif @level == 5
       "medium"
     else
       "hard"
@@ -47,34 +53,32 @@ end
 #user interface
 puts "Welcome to the Word Guess game! User 1, please"\
      " enter a word:"
-input = STDIN.noecho(&:gets).chomp
-puts "*" * input.length
 continue = true
+counter = 0
+while continue
+  input = STDIN.noecho(&:gets).chomp
+  input.each_char do |c|
+    if /[^A-Za-z]/.match(c)
+      counter += 1
+    end
+  end
+  if counter > 0
+    puts "Some of those were not letters. Try again."
+  else
+    continue = false
+  end
+  counter = 0
+end
+puts "*" * input.length
 puts "User 2, what level would you like? Enter easy,"\
    " medium, or hard."
-while continue
-  difficulty = gets.chomp.downcase
-  if difficulty == "easy"
-    difficulty = 10
-    continue = false
-  elsif difficulty == "medium"
-    difficulty = 6
-    continue = false
-  elsif difficulty == "hard"
-    difficulty = 3
-    continue = false
-  else
-    puts "Level not recognized.  Please enter easy"\
-         ", medium, or hard."
-  end
-end
+difficulty = gets.chomp.downcase
 word = WordGuess.new(input, difficulty)
 puts "The word is #{input.length} letters long and "\
      "the difficulty is #{word.leveldiff} so you have "\
-     "#{input.length + difficulty} guesses!"
+     "#{input.length + word.level} guesses!"
 word.show
 guess_tracker = []
-puts word.guess_count
 while word.guess_count > 0
   puts "Guess a letter:"
   letter = gets.chomp.slice(0)
