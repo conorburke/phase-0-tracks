@@ -1,13 +1,12 @@
 require 'io/console'
 
 class WordGuess
-  attr_reader :guess_count, :guesses
+  attr_reader :guess_count
 
   def initialize(word, level)
     @word = word
     @level = level
-    @guess_count = 0
-    @guesses = word.length + level
+    @guess_count = word.length + level
     @blanks = "-" * word.length
   end
 
@@ -30,6 +29,7 @@ class WordGuess
     @word.each_char do |l|
       if l == letter.downcase or l == letter.upcase
         @blanks[counter] = @word[counter]
+        @guess_count += 1
         if @blanks == @word
           puts "Congrats. You win! The word was #{@word}!"
           exit
@@ -37,7 +37,7 @@ class WordGuess
       end
       counter += 1    
     end
-    @guess_count += 1
+    @guess_count -= 1
     show
   end
 
@@ -73,16 +73,15 @@ puts "The word is #{input.length} letters long and "\
      "the difficulty is #{word.leveldiff} so you have "\
      "#{input.length + difficulty} guesses!"
 word.show
-counter = 0
 guess_tracker = []
-while counter < word.guesses
+puts word.guess_count
+while word.guess_count > 0
   puts "Guess a letter:"
   letter = gets.chomp.slice(0)
   if /[A-Za-z]/.match(letter)
     unless guess_tracker.include?(letter.downcase)
       word.check_letter(letter)
-      counter += 1
-      puts "You have #{word.guesses - word.guess_count} "\
+      puts "You have #{word.guess_count} "\
            "left."
     else 
         puts "You already guessed that. Try again."
