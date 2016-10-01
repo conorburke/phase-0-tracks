@@ -50,9 +50,9 @@ puts "Welcome to the Word Guess game! User 1, please"\
 input = STDIN.noecho(&:gets).chomp
 puts "*" * input.length
 continue = true
+puts "User 2, what level would you like? Enter easy,"\
+   " medium, or hard."
 while continue
-  puts "User 2, what level would you like? Enter easy,"\
-     " medium, or hard."
   difficulty = gets.chomp.downcase
   if difficulty == "easy"
     difficulty = 10
@@ -78,7 +78,7 @@ guess_tracker = []
 while counter < word.guesses
   puts "Guess a letter:"
   letter = gets.chomp.slice(0)
-  if letter.downcase.ord >= 97 and letter.downcase.ord <= 122
+  if /[A-Za-z]/.match(letter)
     unless guess_tracker.include?(letter.downcase)
       word.check_letter(letter)
       counter += 1
