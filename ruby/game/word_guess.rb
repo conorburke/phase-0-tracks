@@ -46,9 +46,7 @@ class WordGuess
     @guess_count -= 1
     show
   end
-
 end
-
 
 #user interface
 puts "Welcome to the Word Guess game! User 1, please"\
