@@ -9,7 +9,9 @@ var str = "hello";
 var new_str = "";
 
 function reorder(word, new_word){
-  for (var i = word.length ; i >= 0; i--) {
+  for (var i = word.length - 1 ; i >= 0; i--) {
     console.log(word.charAt(i));
   }
 }
+
+reorder(str,new_str);
