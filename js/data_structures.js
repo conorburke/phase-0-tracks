@@ -30,3 +30,9 @@ var car2 = new Car("Chevrolet", "Corvette", 2016);
 console.log(car2);
 car2.drive();
 console.log("-----");
+
+for (var horse in stable) {
+  if (stable.hasOwnProperty(horse)){
+    console.log(horse + " " + stable[horse]);
+  }
+}
