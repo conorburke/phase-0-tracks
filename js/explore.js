@@ -5,13 +5,14 @@
 // -the characters are then stored in the new word in that
 //  order
 
-var str = "hello";
-var new_str = "";
+var str = "hello!";
 
-function reorder(word, new_word){
+function reorder(word){
+  var new_str = "";
   for (var i = word.length - 1 ; i >= 0; i--) {
-    console.log(word.charAt(i));
+    new_str += word.charAt(i);
   }
+  return new_str
 }
 
-reorder(str,new_str);
+console.log(reorder(str));
