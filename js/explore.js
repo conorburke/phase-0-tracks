@@ -21,7 +21,8 @@ function reorder(word){
 var str = "hello!";
 console.log(reorder(str));
 var str2 = "gemini";
-console.log(reorder(str2));
+var string2 = reorder(str2);
+console.log(string2);
 
 var str3 = "Bailey"
 if (13 > 12 && true || false){
