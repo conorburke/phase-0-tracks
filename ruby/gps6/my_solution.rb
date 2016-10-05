@@ -22,15 +22,15 @@ class VirusPredictor
 
   # a way to call those two methods with those specific arguments
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
 
   # evaluates the population_density and then executes a 
   # calculation and prints out first half of message
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -51,7 +51,7 @@ class VirusPredictor
   # evaluates the population_density and increments the speed
   # variable based on that evaluation.  prints second half of 
   # message
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
