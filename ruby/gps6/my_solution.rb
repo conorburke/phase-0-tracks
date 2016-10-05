@@ -4,18 +4,23 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Require_relative looks up the file name in the local directory.
+# It is analogous to copying/importing the data in that file and
+# pasting it in the current file.  Require looks up the full path
+# in the Ruby file-tree.
+
 require_relative 'state_data'
 
 class VirusPredictor
-
+  # runs when an instance of VirusPredictor is create and takes
+  # and sets the three parameters to those instance variables
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+  # a way to call those two methods with those specific arguments
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
@@ -23,6 +28,8 @@ class VirusPredictor
 
   private
 
+  # evaluates the population_density and then executes a 
+  # calculation and prints out first half of message
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -41,6 +48,9 @@ class VirusPredictor
 
   end
 
+  # evaluates the population_density and increments the speed
+  # variable based on that evaluation.  prints second half of 
+  # message
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
