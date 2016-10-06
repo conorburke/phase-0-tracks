@@ -88,9 +88,9 @@ function random_words(num){
     random_number = Math.floor((Math.random() * 10) + 1);
     next_word = "";
     for (var c = 0; c < random_number; c++){
-      second_random = Math.floor((Math.random() * 26) + 1);
+      second_random = Math.floor((Math.random() * 26) + 97);
       next_char = String.fromCharCode(second_random);
-      next_word.concat(next_char);
+      next_word += next_char;
     }
     generated_list.push(next_word);
   }
@@ -98,7 +98,7 @@ function random_words(num){
 }
 
 console.log(random_words(3));
-
+console.log(random_words(5));
 
 
 
