@@ -1,4 +1,5 @@
 /*
+Release 0
   pseudocode function for longest word in array
     -create array with several strings stored in it
     -define function that takes one parameter (an array)
@@ -27,6 +28,7 @@ var matrix = ["Morpheus", "Neo", "Trinity"];
 console.log(longest_phrase(matrix));
 */
 /*
+Release 1
   pseudocode a key:value matching algorithm
   -define a function that takes two inputs (both objects)
   -check to see if both objects contain a matching key
@@ -39,7 +41,7 @@ console.log(longest_phrase(matrix));
       -if not, return false
     -if they don't have any of the same key, return false
 */
-
+/*
 function keyvalue_match(first_set, second_set){
   check_keys = [];
   for (var property in first_set){
@@ -62,6 +64,54 @@ console.log(keyvalue_match(people, other_people));
 var languages = {ruby: "easy", java: "medium", c: "hard"};
 var languages2 = {spanish: "easy", chinese: "medium", icelandic: "hard"};
 console.log(keyvalue_match(languages, languages2));
+*/
+/*
+Release 2
+  pseudocode a random array generator
+    -define a function that takes a single integer parameter
+    -create a blank array in function
+    -loop through and add strings to array equal to integer parameter
+      -for each array index, generate a random number between 1 and 10
+        -this is the length of the word at that position
+        -set this equal to a new variable
+        -use a for loop that iterates for as long as this rand number is
+          -create a blank string
+          -generate a random number between 97 and 122 to get letters
+            -may need to be between 1 and 26 and add 96
+          -convert those numbers to letters and append to string
+
+*/
+console.log(String.fromCharCode(97));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
