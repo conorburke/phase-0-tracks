@@ -12,9 +12,13 @@
 var phrases = ["hello world", "jet force gemini", "oh nothing"]
 
 function longest_phrase(phrases){
+  var longest = "";
   for (var i = 0; i < phrases.length; i++){
-    console.log(phrases[i])
+    if (phrases[i].length > longest.length){
+      longest = phrases[i];
+    } 
   }
+  return longest
 }
 
-longest_phrase(phrases)
+console.log(longest_phrase(phrases));
