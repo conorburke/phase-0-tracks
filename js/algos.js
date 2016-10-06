@@ -40,17 +40,21 @@ console.log(longest_phrase(matrix));
     -if they don't have any of the same key, return false
 */
 
-var people = {conor: 27, mike: 26}
-var other_people = {pete: 28, john: 29}
+var people = {conor: 27, mack: 27, mike: 26}
+var other_people = {pete: 28, john: 29, mack: 27}
 
 function keyvalue_match(first_set, second_set){
   check_keys = [];
   for (var property in first_set){
-    //if (first_set.hasOwnProperty(property)){
-      check_keys.push(property);
-    //}
+    check_keys.push(property);
   }
-  return check_keys;
+  for (var i = 0; i<= check_keys.length; i++){
+    if (second_set.hasOwnProperty(check_keys[i])){
+      return true;
+    }
+  }
+  return false
+  //return check_keys;
 }
 
 console.log(keyvalue_match(people, other_people));
