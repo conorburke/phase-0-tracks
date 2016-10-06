@@ -86,11 +86,15 @@ function random_words(num){
   generated_list = [];
   for (var i = 0; i < num; i++){
     random_number = Math.floor((Math.random() * 10) + 1);
-    for (var c = 0; i < random_number; c++){
-      
+    next_word = "";
+    for (var c = 0; c < random_number; c++){
+      second_random = Math.floor((Math.random() * 26) + 1);
+      next_char = String.fromCharCode(second_random);
+      next_word.concat(next_char);
     }
+    generated_list.push(next_word);
   }
-  return random_number
+  return generated_list;
 }
 
 console.log(random_words(3));
