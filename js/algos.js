@@ -9,7 +9,7 @@ Release 0
         a separate variable
       -return the variable that has the longest string stored in it
 */
-/*
+
 function longest_phrase(phrases){
   var longest = "";
   for (var i = 0; i < phrases.length; i++){
@@ -20,13 +20,13 @@ function longest_phrase(phrases){
   return longest;
 }
 
-var phrases = ["hello world", "jet force gemini", "oh nothing"];
-console.log(longest_phrase(phrases));
-var teams = ["Eagles", "Cowboys", "Giants", "Redskins"];
-console.log(longest_phrase(teams));
-var matrix = ["Morpheus", "Neo", "Trinity"];
-console.log(longest_phrase(matrix));
-*/
+// var phrases = ["hello world", "jet force gemini", "oh nothing"];
+// console.log(longest_phrase(phrases));
+// var teams = ["Eagles", "Cowboys", "Giants", "Redskins"];
+// console.log(longest_phrase(teams));
+// var matrix = ["Morpheus", "Neo", "Trinity"];
+// console.log(longest_phrase(matrix));
+
 /*
 Release 1
   pseudocode a key:value matching algorithm
@@ -41,7 +41,7 @@ Release 1
       -if not, return false
     -if they don't have any of the same key, return false
 */
-/*
+
 function keyvalue_match(first_set, second_set){
   check_keys = [];
   for (var property in first_set){
@@ -58,13 +58,13 @@ function keyvalue_match(first_set, second_set){
   //return check_keys;
 }
 
-var people = {conor: 27, mack: 27, mike: 26};
-var other_people = {pete: 28, john: 29, mack: 27};
-console.log(keyvalue_match(people, other_people));
-var languages = {ruby: "easy", java: "medium", c: "hard"};
-var languages2 = {spanish: "easy", chinese: "medium", icelandic: "hard"};
-console.log(keyvalue_match(languages, languages2));
-*/
+// var people = {conor: 27, mack: 27, mike: 26};
+// var other_people = {pete: 28, john: 29, mack: 27};
+// console.log(keyvalue_match(people, other_people));
+// var languages = {ruby: "easy", java: "medium", c: "hard"};
+// var languages2 = {spanish: "easy", chinese: "medium", icelandic: "hard"};
+// console.log(keyvalue_match(languages, languages2));
+
 /*
 Release 2
   pseudocode a random array generator
@@ -97,13 +97,18 @@ function random_words(num){
   return generated_list;
 }
 
-console.log(random_words(3));
-console.log(random_words(5));
+// console.log(random_words(3));
+// console.log(random_words(5));
 
-
-
-
-//console.log(String.fromCharCode(97));
+// final driver code
+var count = 10;
+for (i = 0; i < count; i++){
+  new_random = Math.floor((Math.random() * 7) + 1)
+  var current_array = random_words(new_random);
+  console.log(current_array);
+  var long_phrase = longest_phrase(current_array);
+  console.log(long_phrase);
+}
 
 
 
