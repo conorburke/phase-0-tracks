@@ -8,9 +8,7 @@
         a separate variable
       -return the variable that has the longest string stored in it
 */
-
-var phrases = ["hello world", "jet force gemini", "oh nothing"]
-
+/*
 function longest_phrase(phrases){
   var longest = "";
   for (var i = 0; i < phrases.length; i++){
@@ -18,7 +16,72 @@ function longest_phrase(phrases){
       longest = phrases[i];
     } 
   }
-  return longest
+  return longest;
 }
 
+var phrases = ["hello world", "jet force gemini", "oh nothing"];
 console.log(longest_phrase(phrases));
+var teams = ["Eagles", "Cowboys", "Giants", "Redskins"];
+console.log(longest_phrase(teams));
+var matrix = ["Morpheus", "Neo", "Trinity"];
+console.log(longest_phrase(matrix));
+*/
+/*
+  pseudocode a key:value matching algorithm
+  -define a function that takes two inputs (both objects)
+  -check to see if both objects contain a matching key
+    -use hasOwnProperty for this
+    -loop through one object and add its keys to array
+    -compare data in array to keys of second object
+  -if they do have the same key at least once
+    -check to see if the values are the same
+      -if so, return true
+      -if not, return false
+    -if they don't have any of the same key, return false
+*/
+
+var people = {conor: 27, mike: 26}
+var other_people = {pete: 28, john: 29}
+
+function keyvalue_match(first_set, second_set){
+  check_keys = [];
+  for (var property in first_set){
+    //if (first_set.hasOwnProperty(property)){
+      check_keys.push(property);
+    //}
+  }
+  return check_keys;
+}
+
+console.log(keyvalue_match(people, other_people));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
