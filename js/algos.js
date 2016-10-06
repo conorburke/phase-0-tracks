@@ -54,7 +54,7 @@ function keyvalue_match(first_set, second_set){
       }
     }
   }
-  return false
+  return false;
   //return check_keys;
 }
 
@@ -109,64 +109,3 @@ for (i = 0; i < count; i++){
   var long_phrase = longest_phrase(current_array);
   console.log(long_phrase);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
