@@ -103,7 +103,7 @@ function random_words(num){
 // final driver code
 var count = 10;
 for (i = 0; i < count; i++){
-  new_random = Math.floor((Math.random() * 7) + 1)
+  var new_random = Math.floor((Math.random() * 7) + 1);
   var current_array = random_words(new_random);
   console.log(current_array);
   var long_phrase = longest_phrase(current_array);
