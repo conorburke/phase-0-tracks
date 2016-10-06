@@ -9,4 +9,12 @@
       -return the variable that has the longest string stored in it
 */
 
+var phrases = ["hello world", "jet force gemini", "oh nothing"]
 
+function longest_phrase(phrases){
+  for (var i = 0; i < phrases.length; i++){
+    console.log(phrases[i])
+  }
+}
+
+longest_phrase(phrases)
