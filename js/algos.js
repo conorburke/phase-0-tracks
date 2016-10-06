@@ -40,9 +40,6 @@ console.log(longest_phrase(matrix));
     -if they don't have any of the same key, return false
 */
 
-var people = {conor: 27, mack: 26, mike: 26}
-var other_people = {pete: 28, john: 29, mack: 27}
-
 function keyvalue_match(first_set, second_set){
   check_keys = [];
   for (var property in first_set){
@@ -59,7 +56,12 @@ function keyvalue_match(first_set, second_set){
   //return check_keys;
 }
 
+var people = {conor: 27, mack: 27, mike: 26};
+var other_people = {pete: 28, john: 29, mack: 27};
 console.log(keyvalue_match(people, other_people));
+var languages = {ruby: "easy", java: "medium", c: "hard"};
+var languages2 = {spanish: "easy", chinese: "medium", icelandic: "hard"};
+console.log(keyvalue_match(languages, languages2));
 
 
 
