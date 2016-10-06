@@ -81,7 +81,25 @@ Release 2
           -convert those numbers to letters and append to string
 
 */
-console.log(String.fromCharCode(97));
+
+function random_words(num){
+  generated_list = [];
+  for (var i = 0; i < num; i++){
+    random_number = Math.floor((Math.random() * 10) + 1);
+    for (var c = 0; i < random_number; c++){
+      
+    }
+  }
+  return random_number
+}
+
+console.log(random_words(3));
+
+
+
+
+
+//console.log(String.fromCharCode(97));
 
 
 
