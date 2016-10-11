@@ -1,0 +1,152 @@
+1. Display the information in one table (either table is fine).
+
+sqlite> SELECT * FROM superheroes;
+
+1|Batman|Combatives|Detective Skills|72|true|2
+2|Beast|Combativies|Genius Intellect|74|true|3
+3|Captain America|Combativies|Leadership|78|true|1
+4|Flash|Super Speed|Stamina|84|true|2
+5|Gambit|Energy Control|Card Throwing|66|true|3
+6|Hulk|Super Strength|Rage|94|true|1
+7|Iron Man|Weapons Arsenal|Genius Intellect|88|true|1
+8|Superman|Heat Vision|Super Strength|95|false|2
+9|Thor|Lightning|Super Strength|96|false|1
+10|Wolverine|Combatives|Regeneration|79|true|3
+11|Wonder Woman|Flight|Super Strength|86|false|2
+12|Xavier|Telepathy|Genius Intellect|93|true|3
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> UPDATE superheroes SET name="Professor Xavier" WHERE id=12;
+
+sqlite> SELECT * FROM superheroes;
+
+1|Batman|Combatives|Detective Skills|72|true|2
+2|Beast|Combativies|Genius Intellect|74|true|3
+3|Captain America|Combativies|Leadership|78|true|1
+4|Flash|Super Speed|Stamina|84|true|2
+5|Gambit|Energy Control|Card Throwing|66|true|3
+6|Hulk|Super Strength|Rage|94|true|1
+7|Iron Man|Weapons Arsenal|Genius Intellect|88|true|1
+8|Superman|Heat Vision|Super Strength|95|false|2
+9|Thor|Lightning|Super Strength|96|false|1
+10|Wolverine|Combatives|Regeneration|79|true|3
+11|Wonder Woman|Flight|Super Strength|86|false|2
+12|Professor Xavier|Telepathy|Genius Intellect|93|true|3
+
+
+3. Display the information in both tables using one query.
+
+sqlite> SELECT * FROM superheroes, organizations WHERE superheroes.org_id = organizations.id;
+
+1|Batman|Combatives|Detective Skills|72|true|2|2|Justice League
+2|Beast|Combativies|Genius Intellect|74|true|3|3|X-Men
+3|Captain America|Combativies|Leadership|78|true|1|1|Avengers
+4|Flash|Super Speed|Stamina|84|true|2|2|Justice League
+5|Gambit|Energy Control|Card Throwing|66|true|3|3|X-Men
+6|Hulk|Super Strength|Rage|94|true|1|1|Avengers
+7|Iron Man|Weapons Arsenal|Genius Intellect|88|true|1|1|Avengers
+8|Superman|Heat Vision|Super Strength|95|false|2|2|Justice League
+9|Thor|Lightning|Super Strength|96|false|1|1|Avengers
+10|Wolverine|Combatives|Regeneration|79|true|3|3|X-Men
+11|Wonder Woman|Flight|Super Strength|86|false|2|2|Justice League
+12|Professor Xavier|Telepathy|Genius Intellect|93|true|3|3|X-Men
+
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+sqlite> SELECT organizations.Faction, superheroes.Name, superheroes.Points FROM organizations JOIN superheroes ON organizations.id = superheroes.org_id ORDER BY organizations.Faction, superheroes.Name;
+
+Avengers|Captain America|78
+Avengers|Hulk|94
+Avengers|Iron Man|88
+Avengers|Thor|96
+Justice League|Batman|72
+Justice League|Flash|84
+Justice League|Superman|95
+Justice League|Wonder Woman|86
+X-Men|Beast|74
+X-Men|Gambit|66
+X-Men|Professor Xavier|93
+X-Men|Wolverine|79
+
+
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+sqlite> DELETE FROM superheroes WHERE id=12;
+
+sqlite> SELECT id, Name FROM superheroes;
+
+1|Batman
+2|Beast
+3|Captain America
+4|Flash
+5|Gambit
+6|Hulk
+7|Iron Man
+8|Superman
+9|Thor
+10|Wolverine
+11|Wonder Woman
+
+6. Other queries: (inserted professor X back in)
+
+sqlite> SELECT organizations.Faction, superheroes.Name, superheroes.Ability2, superheroes.Points FROM organizations JOIN superheroes ON organizations.id = superheroes.org_id WHERE superheroes.Ability2="Genius Intellect" ORDER BY superheroes.points DESC;
+
+X-Men|Professor Xavier|Genius Intellect|93
+Avengers|Iron Man|Genius Intellect|88
+X-Men|Beast|Genius Intellect|74
+
+
+
+sqlite> SELECT organizations.Faction, superheroes.Name, superheroes.Human FROM organizations LEFT JOIN superheroes ON organizations.id = superheroes.org_id;
+
+Avengers|Captain America|true
+Avengers|Hulk|true
+Avengers|Iron Man|true
+Avengers|Thor|false
+Justice League|Batman|true
+Justice League|Flash|true
+Justice League|Superman|false
+Justice League|Wonder Woman|false
+X-Men|Beast|true
+X-Men|Gambit|true
+X-Men|Professor Xavier|true
+X-Men|Wolverine|true
+
+
+
+sqlite> INSERT INTO organizations (Faction) VALUES ("Suicide Squad");
+
+sqlite> SELECT organizations.Faction, superheroes.Name, superheroes.Human FROM organizations LEFT JOIN superheroes ON organizations.id = superheroes.org_id;
+
+Avengers|Captain America|true
+Avengers|Hulk|true
+Avengers|Iron Man|true
+Avengers|Thor|false
+Justice League|Batman|true
+Justice League|Flash|true
+Justice League|Superman|false
+Justice League|Wonder Woman|false
+X-Men|Beast|true
+X-Men|Gambit|true
+X-Men|Professor Xavier|true
+X-Men|Wolverine|true
+Suicide Squad||
+
+
+
+sqlite> SELECT organizations.Faction, SUM(superheroes.points) FROM superheroes JOIN organizations ON organizations.id = superheroes.org_id GROUP BY organizations.Faction;
+
+Avengers|356
+Justice League|337
+X-Men|312
+
+
+
+sqlite> SELECT organizations.Faction, AVG(superheroes.points) FROM superheroes JOIN organizations ON organizations.id = superheroes.org_id GROUP BY organizations.Faction;
+
+Avengers|89.0
+Justice League|84.25
+X-Men|78.0
