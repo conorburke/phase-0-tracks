@@ -56,4 +56,49 @@ movie_reviews_table = <<-SQL
   )
 SQL
 
+def insert_book(db, title, author)
+  db.execute("INSERT INTO books (title, author) VALUES (?, ?)"\
+    , [title, author]) 
+end
+
+def delete_book(db, id)
+  db.execute("DELETE FROM books WHERE id=(?)", [id])
+end
+
+def insert_movie(db, title, based, book_id)
+  db.execute("INSERT INTO movies (title, based_on_book, book_id)"\
+    " VALUES (?, ?, ?)", [title, based, book_id])
+end
+
+def delete_movie(db, id)
+  db.execute("DELETE FROM movies WHERE id=(?)", [id])
+end
+
+
+#create tables
+db.execute(users_table)
+db.execute(books_table)
+db.execute(movies_table)
+db.execute(book_reviews_table)
+db.execute(movie_reviews_table)
+
+#create users
+db.execute("INSERT INTO users (name) VALUES (\"Conor\"), (\"Claire\")")
+
+
+
+
+
+#USER INTERFACE
+puts "Welcome to the Book and Movie Reviews Database."
+
+
+
+
+
+
+
+
+
+
 
