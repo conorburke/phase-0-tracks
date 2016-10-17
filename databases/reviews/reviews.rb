@@ -64,6 +64,10 @@ def delete_user(db, user)
   db.execute("DELETE FROM users WHERE id=(?)", [user])
 end
 
+def select_user(db, name)
+  db.execute("SELECT id FROM users WHERE name=(?)", [name])
+end
+
 def insert_book(db, title, author)
   db.execute("INSERT INTO books (title, author) VALUES (?, ?)"\
     , [title, author]) 
@@ -73,6 +77,14 @@ def delete_book(db, id)
   db.execute("DELETE FROM books WHERE id=(?)", [id])
 end
 
+def select_book(db, title)
+  db.execute("SELECT id FROM books WHERE title=(?)", [title])
+end
+
+def show_books(db)
+  db.execute("SELECT * FROM books")
+end
+
 def insert_movie(db, title, based, book_id)
   db.execute("INSERT INTO movies (title, based_on_book, book_id)"\
   " VALUES (?, ?, ?)", [title, based, book_id])
@@ -80,6 +92,10 @@ end
 
 def delete_movie(db, id)
   db.execute("DELETE FROM movies WHERE id=(?)", [id])
+end
+
+def select_movie(db, title)
+  db.execute("SELECT id FROM movies WHERE title=(?)", [title])
 end
 
 def create_book_review(db, title, rating, comments, bid, uid)
@@ -116,18 +132,69 @@ puts "Welcome to the Book and Movie Reviews Database."
 #create or choose user
 puts "Are you a new user?"
 user = gets.chomp
-if user.match(/^y*/i)
+if user.match(/^y/i)
   puts "What is your name?"
   user_name = gets.chomp
   create_user(db, user_name)
+  user_id = select_user(db, user_name)
 else
-  puts "What is your user id?"
-  user_id = gets.chomp
+  puts "What is your name?"
+  user_name = gets.chomp
+  user_id = select_user(db, user_name)
 end
 
-puts "Would you like to add a book to your list?"
-if user.match(/^y*/i)
-  puts 
+# add a book
+puts "Would you like to add a book to the list?"
+answer = gets.chomp
+if answer.match(/^y/i)
+  puts "What is the title?"
+  book_title = gets.chomp
+  puts "Who is the author?"
+  book_author = gets.chomp
+  insert_book(db, book_title, book_author)
+  puts "Created a record for #{book_title} by #{book_author}."\
+    "ID for this book is #{select_book(db, book_title)}. "
+end
+
+# delete a book
+puts "Would you like to delete a book?"
+answer = gets.chomp
+if answer.match(/^y/i)
+  puts "Do you need to see the book list?"
+  answer = gets.chomp
+  if answer.match(/^y/i)
+    puts show_books(db)
+  end
+  puts "What book (by ID) do you want deleted?"
+  answer = gets.chomp.to_i
+  delete_book(db, answer)
+end
+
+
+
+# add a movie
+puts "Would you like to add a movie to your list?"
+answer = gets.chomp
+if answer.match(/^y/i)
+  puts "What is the title?"
+  movie_title = gets.chomp
+  puts "Is it based on a book?"
+  answer = gets.chomp
+  if answer.match(/^y/i)
+    book_based = "true"
+  else
+    book_based = "false"
+  end
+  puts "What is the book's id (if known)?"
+  book_id = gets.chomp.to_i
+  insert_movie(db, movie_title, book_based, book_id)
+  puts "Created a record for #{movie_title}."
+    "ID for this movie is #{select_movie(db, movie_title)}. "    
+end
+
+
+
+
 
 
 
