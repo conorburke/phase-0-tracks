@@ -98,6 +98,10 @@ def select_movie(db, title)
   db.execute("SELECT id FROM movies WHERE title=(?)", [title])
 end
 
+def show_movies(db)
+  db.execute("SELECT * FROM movies")
+end
+
 def create_book_review(db, title, rating, comments, bid, uid)
   db.execute("INSERT INTO book_reviews (title, rating, "\
     "comments, book_id, user_id) VALUES (?, ?, ?, ?, ?)"\
@@ -143,6 +147,13 @@ else
   user_id = select_user(db, user_name)
 end
 
+# show books
+puts "Do you need to see the book list?"
+answer = gets.chomp
+if answer.match(/^y/i)
+  puts show_books(db)
+end
+
 # add a book
 puts "Would you like to add a book to the list?"
 answer = gets.chomp
@@ -160,17 +171,17 @@ end
 puts "Would you like to delete a book?"
 answer = gets.chomp
 if answer.match(/^y/i)
-  puts "Do you need to see the book list?"
-  answer = gets.chomp
-  if answer.match(/^y/i)
-    puts show_books(db)
-  end
   puts "What book (by ID) do you want deleted?"
   answer = gets.chomp.to_i
   delete_book(db, answer)
 end
 
-
+#show movies 
+puts "Do you need to see the movie list?"
+answer = gets.chomp
+if answer.match(/^y/i)
+  puts show_movies(db)
+end
 
 # add a movie
 puts "Would you like to add a movie to your list?"
@@ -191,6 +202,42 @@ if answer.match(/^y/i)
   puts "Created a record for #{movie_title}."
     "ID for this movie is #{select_movie(db, movie_title)}. "    
 end
+
+# delete a movie
+puts "Would you like to delete a movie?"
+answer = gets.chomp
+if answer.match(/^y/i)
+  puts "What movie (by ID) do you want deleted?"
+  answer = gets.chomp.to_i
+  delete_book(db, answer)
+end
+
+def create_book_review(db, title, rating, comments, bid, uid)
+  db.execute("INSERT INTO book_reviews (title, rating, "\
+    "comments, book_id, user_id) VALUES (?, ?, ?, ?, ?)"\
+    , [title, rating, comments, bid, uid])
+end
+
+# add book review
+puts "Would you like to write a book review?"
+answer = gets.chomp
+if answer.match(/^y/i)
+  puts "What is the title of the book?"
+  title = gets.chomp
+  puts "What rating would you give it (1-100)?"
+  rating = gets.chomp.to_i
+  puts "Add any comments you'd like:"
+  comments = gets.chomp
+  puts "Put the book ID if known or writ 0"
+  bid = gets.chomp.to_i
+  uid = user_id[0]
+  create_book_review(db, title, rating, comments, bid, uid)
+end
+
+
+
+
+
 
 
 
