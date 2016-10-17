@@ -137,10 +137,6 @@ db.execute(movies_table)
 db.execute(book_reviews_table)
 db.execute(movie_reviews_table)
 
-#create users
-#db.execute("INSERT INTO users (name) 
-#VALUES (\"Conor\"), (\"Claire\")")
-
 #USER INTERFACE
 puts "Welcome to the Book and Movie Reviews Database."
 continue = true
@@ -163,7 +159,7 @@ while continue
   puts "Do you need to see the book list?"
   answer = gets.chomp
   if answer.match(/^y/i)
-    puts show_books(db)
+    p show_books(db)
   end
 
   # add a book
@@ -175,7 +171,7 @@ while continue
     puts "Who is the author?"
     book_author = gets.chomp
     insert_book(db, book_title, book_author)
-    puts "Created a record for #{book_title} by #{book_author}."\
+    puts "Created a record for #{book_title} by #{book_author}. "\
       "ID for this book is #{select_book(db, book_title)}. "
   end
 
@@ -208,7 +204,7 @@ while continue
     else
       book_based = "false"
     end
-    puts "What is the book's id (if known)?"
+    puts "What is the book's id (if known).  Put 0 if not known?"
     book_id = gets.chomp.to_i
     insert_movie(db, movie_title, book_based, book_id)
     puts "Created a record for #{movie_title}."
@@ -228,7 +224,7 @@ while continue
   puts "Do you need to see the book reviews?"
   answer = gets.chomp
   if answer.match(/^y/i)
-    puts show_book_reviews(db)
+    p show_book_reviews(db)
   end
 
   # add book review
@@ -261,7 +257,7 @@ while continue
   puts "Do you need to see the movie reviews?"
   answer = gets.chomp
   if answer.match(/^y/i)
-    puts show_movie_reviews(db)
+    p show_movie_reviews(db)
   end
 
   # add a movie review
