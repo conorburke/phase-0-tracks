@@ -44,3 +44,29 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+
+#contact route
+get '/contact' do
+  "Located at <a href='http://www.whitehouse.gov'>1600 Pennsylvania Avenue<?>"
+end
+
+#great_job route
+get '/great_job' do
+  person = params[:person]
+  person ? "Good job, #{person}!" : "Good job!"
+end
+
+#adder route
+get '/adder/:num1&:num2' do
+  num1, num2 = params[:num1], params[:num2]
+  added = (num1.to_i + num2.to_i).to_s
+end
+
+#optional db query
+get '/search' do
+  campus = params[:campus]
+  location = db.execute("SELECT * FROM students WHERE campus=?", campus)
+  location.to_s
+end
+
