@@ -12,3 +12,24 @@ var button1 = document.getElementsByTagName("button");
 button1[0].addEventListener("click", function(){
   disappear();
 })
+
+var link = document.getElementById("emphasis");
+
+link.addEventListener("click", function(e){
+  destroy(e);
+}, false);
+
+function destroy(e){
+  var target, parent, grandparent
+  target = e.target;
+  parent = target.parentNode;
+  grandparent = parent.parentNode;
+  grandparent.removeChild(parent);
+  e.preventDefault();
+}
+
+function onscreen(){
+  window.prompt("Hello World");
+}
+
+window.addEventListener("DOMContentLoaded", onscreen) //faster than 'load'
