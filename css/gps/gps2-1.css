@@ -1,0 +1,37 @@
+body {
+  font-family: arial, georgia, san-serif;
+  background-color: white;
+}
+header{
+  background-color: blue;
+  color: white;
+  padding: 2%;
+}
+.column-1{
+  margin-left: 5%;
+  float: left;
+  width: 43%;
+  border-right: 20px solid black;
+}
+.column-2{
+  margin-right: 5%;
+  width: 43%;
+  float: right;
+}
+footer{
+  background-color: red;
+  padding: 2%
+}
+#footer {
+  clear: both;
+  padding-top: 2%;
+}
+header, footer {
+  background-color: green;
+}
+.column-1>article>h2{
+  color: pink;
+}
+a:hover{
+  color: orange;
+}
