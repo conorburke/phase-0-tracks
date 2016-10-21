@@ -35,7 +35,7 @@ end
 # add static resources
 
 get '/campuses' do
-  @campuses = db.execute("SELECT DISTINCT campus FROM students")
+  @campuses = db.execute("SELECT DISTINCT campus, COUNT(campus) FROM students GROUP BY campus")
   @newcampuses = db.execute("SELECT name FROM campus")
   erb :campus_list
 end
